@@ -10,4 +10,4 @@ function main()
   return dirdata
 end
  
-main()
+return main()
