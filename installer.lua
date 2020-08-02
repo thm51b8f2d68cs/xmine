@@ -7,7 +7,7 @@ xdata = xdirdata.xdata
  
 function main()
   displayTitle()
-  if(not checkForInstallationFolder) then
+  if(not checkForInstallationFolder()) then
     shell.run("gitget thm51b8f2d68cs xmine")
   end
   installerWizard(promptUser())
@@ -50,7 +50,7 @@ function checkForInstallationFolder()
 end
  
 --Unimplemented
-function checkForInstallation(installFolderExists)
+function checkForCurrentInstallation(installFolderExists)
   if (installFolderExists) then
     if (fs.exists("/xMine/xMine.lua")) then
       return true
