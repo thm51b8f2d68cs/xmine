@@ -33,6 +33,7 @@ function installerWizard(userChoice)
     promptRestart()
   elseif (userChoice == "uninstall") then
     uninstall()
+    fs.delete("/xMineInstallation")
     promptRestart()
   elseif (userChoice == "exit") then
     exit()
