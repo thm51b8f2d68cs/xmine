@@ -20,7 +20,7 @@ function displayTitle()
   textutils.slowPrint("=======================================\n")
   os.sleep(1)
 end
- 
+
 function promptUser()
   print("[install/uninstall/exit]")
   io.write(">")
