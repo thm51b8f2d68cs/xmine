@@ -58,7 +58,7 @@ function checkForInstallation(installFolderExists)
   end
   return false
 end
- 
+
 --Unimplemented
 function checkForInstallFolder()
   if (f.isDir("/xMine")) then
