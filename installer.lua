@@ -59,7 +59,7 @@ end
  
 function install()
   uninstall()
-  fs.copy("/disk/xMineInstallation", xroot)
+  fs.copy("/xMineInstallation", xroot)
   --If a backup exists, remove the current file and replace it with the backup
   if (fs.exists("/.excavations.txt")) then
     fs.delete(xroot .. xdata .. "/.excavations.txt")
