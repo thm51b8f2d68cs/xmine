@@ -7,9 +7,6 @@ xdata = xdirdata.xdata
  
 function main()
   displayTitle()
-  if(not checkForInstallationFolder()) then
-    shell.run("gitget thm51b8f2d68cs xmine")
-  end
   installerWizard(promptUser())
 end
  
@@ -76,6 +73,9 @@ end
 
 function install()
   --if (fs.exists("/.xmine"))
+  if(not checkForInstallationFolder()) then
+    shell.run("gitget thm51b8f2d68cs xmine develop")
+  end
   uninstall()
   fs.copy("/xMineInstallation", xroot)
   --If a backup exists, remove the current file and replace it with the backup
