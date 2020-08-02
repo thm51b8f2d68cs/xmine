@@ -87,6 +87,7 @@ function install()
   fs.move(xroot .. xbin .. "getDirData.lua", "/.getDirData.lua")
   fs.move(xroot .. xbin .. "/xmine.lua", "/xmine.lua")
   fs.delete("/xMineInstallation")
+  fs.delete("README.md")
 
   dirData = io.open("/.dirdata.txt", "w")
   dataToWrite = textutils.serialize(xdirdata)
