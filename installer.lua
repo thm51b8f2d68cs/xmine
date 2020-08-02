@@ -97,7 +97,7 @@ function install()
   textutils.slowPrint("X Mine is now installed.")
   os.sleep(1)
 end
- 
+
 function uninstall()
   --If no backup exists and this is not fresh install then backup
   if (not fs.exists("/.excavations.txt") and fs.exists(xroot)) then
