@@ -34,6 +34,7 @@ function installerWizard(userChoice)
   elseif (userChoice == "uninstall") then
     uninstall()
     fs.delete("/xMineInstallation")
+    fs.delete("README.md")
     promptRestart()
   elseif (userChoice == "exit") then
     exit()
