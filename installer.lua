@@ -7,6 +7,9 @@ xdata = xdirdata.xdata
  
 function main()
   displayTitle()
+  if(not checkForInstallationFolder) then
+    shell.run("gitget thm51b8f2d68cs xmine")
+  end
   installerWizard(promptUser())
 end
  
@@ -38,6 +41,13 @@ function installerWizard(userChoice)
     installerWizard(promptUser())
   end
 end
+
+function checkForInstallationFolder()
+  if (fs.exists("/xMineInstallation")) then
+    return true
+  end
+  return false
+end
  
 --Unimplemented
 function checkForInstallation(installFolderExists)
@@ -56,8 +66,14 @@ function checkForInstallFolder()
   end
   return false
 end
- 
+--Unimplemented
+function reinstall()
+  uninstall()
+  install()
+end
+
 function install()
+  --if (fs.exists("/.xmine"))
   uninstall()
   fs.copy("/xMineInstallation", xroot)
   --If a backup exists, remove the current file and replace it with the backup
@@ -70,12 +86,13 @@ function install()
   fs.move(xroot .. xdata .. "dirdata.txt", "/.dirdata.txt")
   fs.move(xroot .. xbin .. "getDirData.lua", "/.getDirData.lua")
   fs.move(xroot .. xbin .. "/xmine.lua", "/xmine.lua")
- 
+  fs.delete("/xMineInstallation")
+
   dirData = io.open("/.dirdata.txt", "w")
   dataToWrite = textutils.serialize(xdirdata)
   dirData:write(dataToWrite)
   dirData:close()
- 
+
   textutils.slowPrint("X Mine is now installed.")
   os.sleep(1)
 end
