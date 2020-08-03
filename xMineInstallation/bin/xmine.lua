@@ -63,7 +63,7 @@ function runCoreShaft()
 end
  
 function runQuadrantShaft()
-  shell.run(xroot .. xbin .. "excavateQuadrant.lua"")
+  shell.run(xroot .. xbin .. "excavateQuadrant.lua")
 end
 
 function logCoreShaftExcavation()
