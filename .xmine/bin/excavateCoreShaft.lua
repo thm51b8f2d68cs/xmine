@@ -116,7 +116,6 @@ function excavateCoreShaft(mineDimensions)
 end
 
 function excavateX(x)
-    --for currentX = 1, x-1, 1 do
     if (turtleGPS.getTurtleZ() % 2 == 0) then
         while (turtleGPS.getTurtleX() < x - 1) do
             turtle.dig()
@@ -134,7 +133,6 @@ end
 
 function excavateLayer(x, z)
     --Mine x long z times
-    --for currentZ = 1, z-1, 1 do
     while (turtleGPS.getTurtleZ() < z - 1) do
         excavateX(x)
         if (turtleGPS.getTurtleZ() % 2 == 0) then
@@ -181,8 +179,8 @@ end
 function returnTurtle(yOrigin, yDepth)
     local yDisplacement = yOrigin - yDepth
     if (yDisplacement < 0) then
-       --Set to because the refuelTurtle function argument increments the y displacement
-       yDisplacement = -1
+        --Set to because the refuelTurtle function argument increments the y displacement
+        yDisplacement = -1
     end
     refuelTurtle(1, yDisplacement + 1, 1)
     while (yDepth < yOrigin) do

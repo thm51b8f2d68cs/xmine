@@ -13,7 +13,7 @@ function main()
 end
 
 function isNearCoreShaft(x, y, z)
-    local currentLocation = vector.new(x,y,z)
+    local currentLocation = vector.new(x, y, z)
     for index in pairs(vectors) do
         if (currentLocation - index < 500) then
             return true
@@ -48,7 +48,7 @@ function createVectorsFromFile(path)
         else
             z = excavationData:read("*n")
             lineNum = 1
-            vectors.index = vector.new(x,y,z)
+            vectors.index = vector.new(x, y, z)
             index = index + 1
         end
     end
