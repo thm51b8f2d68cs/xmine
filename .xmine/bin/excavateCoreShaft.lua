@@ -31,7 +31,6 @@ function displayCoreShaftCompletion(mineDimensions)
 end
 
 function isCoreShaftCompleted()
-    turtle.forward()
     local x, y, z = gps.locate()
     local yOrigin = y
     refuelTurtle(1, y - 14, 1)
