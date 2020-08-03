@@ -31,9 +31,6 @@ end
 function isCoreShaftCompleted()
     turtle.forward()
     x, y, z = gps.locate()
-    print(x)
-    print(y)
-    print(z)
     yOirigin = y
     refuelTurtle(1, y - 14, 1)
     while (y > 14) do
@@ -182,7 +179,12 @@ function reorientTurtle()
 end
 
 function returnTurtle(yOrigin, yDepth)
-    refuelTurtle(1, (yOrigin - yDepth) + 1, 1)
+    yDisplacement = yOirigin - yDepth
+    if (yDisplacement < 0) then
+       --Set to because the refuelTurtle function argument increments the y displacement
+       yDisplacement = -1
+    end
+    refuelTurtle(1, yDisplacement + 1, 1)
     while (yDepth < yOrigin) do
         turtle.digUp()
         turtle.up()
