@@ -1,4 +1,4 @@
 # xmine
 A computercraft advanced mining turtle program.
 
-`pastebin run KEx6t3uy`
+`pastebin run ynMYir6J`
