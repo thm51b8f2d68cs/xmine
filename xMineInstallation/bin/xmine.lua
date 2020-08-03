@@ -52,14 +52,23 @@ function runCoreShaft()
   shell.run(xroot .. xbin .. "excavateCoreShaft.lua")
   --Ask user if it ran correctly eg. did it excavate the desired dimensions
   --or was there an error like the turtle did not finish
-  choice = gui.promptUser("Did your turtle excavate the core as desired?\n [Yes/No - there were errors]")
+  checkForShaftCompletion()
+  logCoreShaftExcavation()
+end
+
+function checkForShaftCompletion()
+  choice = gui.promptUser("\nDid your turtle excavate the core as desired?\n [Yes/No - there were errors]")
   if (choice == "No") then
     while (choice == "No") do
       shell.run(xroot .. xbin .. "excavateCoreShaft.lua")
-      choice = gui.promptUser("Did your turtle excavate the core as desired?\n [Yes/No - there were errors]")
+      --choice = gui.promptUser("Did your turtle excavate the core as desired?\n [Yes/No - there were errors/exit]")
+      checkForShaftCompletion()
     end
+  elseif (choice == "yes") then
+    return
+  else
+    checkForShaftCompletion()
   end
-  logCoreShaftExcavation()
 end
  
 function runQuadrantShaft()
