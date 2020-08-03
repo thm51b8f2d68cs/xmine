@@ -31,6 +31,9 @@ end
 function isCoreShaftCompleted()
     turtle.forward()
     x, y, z = gps.locate()
+    print(x)
+    print(y)
+    print(z)
     yOirigin = y
     refuelTurtle(1, y - 14, 1)
     while (y > 14) do
