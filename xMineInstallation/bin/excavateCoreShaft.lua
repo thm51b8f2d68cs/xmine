@@ -31,7 +31,7 @@ end
 function isCoreShaftCompleted()
     turtle.forward()
     local x, y, z = gps.locate()
-    local yOirigin = y
+    local yOrigin = y
     refuelTurtle(1, y - 14, 1)
     while (y > 14) do
         if (turtle.detectDown()) then
