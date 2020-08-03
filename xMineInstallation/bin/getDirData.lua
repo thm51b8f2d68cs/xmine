@@ -5,5 +5,5 @@ function main()
   xdirdata:close()
   return dirdata
 end
- 
+
 return main()
