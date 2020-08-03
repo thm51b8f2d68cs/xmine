@@ -46,8 +46,6 @@ function isCoreShaftCompleted()
     return true
 end
 
-
-
 function getMineDimensions()
 
     local mineDimensions = {}
