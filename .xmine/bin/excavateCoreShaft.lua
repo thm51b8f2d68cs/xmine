@@ -77,6 +77,7 @@ function getMineDimensions()
     local y = yCoord - 14
     print("\nY level: ", y + 14)
     print("\nDepth of mine will be: ", y)
+    os.sleep(1)
     mineDimensions["y depth"] = y
 
     return mineDimensions
