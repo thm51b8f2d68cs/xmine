@@ -56,6 +56,7 @@ function runCoreShaft()
 end
 
 function checkForShaftCompletion()
+    term.clear()
     choice = gui.promptUser("\nDid your turtle excavate the core as desired?\n [Yes/No - there were errors/exit]")
     if (choice == "no") then
         turtle.forward()

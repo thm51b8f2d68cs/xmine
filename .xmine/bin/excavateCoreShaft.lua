@@ -57,12 +57,10 @@ function getMineDimensions()
 
     io.write("\nEnter dimension x: ")
     local x = math.floor(tonumber(io.read()))
-    print("X: ", x)
     mineDimensions["x dim"] = x
 
     io.write("\nEnter dimension z: ")
     local z = math.floor(tonumber(io.read()))
-    print("Z: ", z)
     mineDimensions["z dim"] = z
 
     --Y must be less than 256 and greater than 14 for the safety of the user
