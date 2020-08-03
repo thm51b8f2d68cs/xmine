@@ -76,7 +76,7 @@ function runQuadrantShaft()
 end
 
 function logCoreShaftExcavation()
-  excavations = io.open(excavationsPath, "a")
+  local excavations = io.open(excavationsPath, "a")
   excavations:write(gps.locate())
   excavations:close()
 end
