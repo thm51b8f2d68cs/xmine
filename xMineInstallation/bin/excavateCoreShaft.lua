@@ -20,9 +20,9 @@ end
 
 function displayCoreShaftCompletion(mineDimensions)
 
-    x = mineDimensions["x dim"]
-    z = mineDimensions["z dim"]
-    y = mineDimensions["y depth"]
+    local x = mineDimensions["x dim"]
+    local z = mineDimensions["z dim"]
+    local y = mineDimensions["y depth"]
 
     print("Core shaft completed.")
     print("Mined:", x, "x", z, ":", y, "blocks down")
@@ -30,8 +30,8 @@ end
 
 function isCoreShaftCompleted()
     turtle.forward()
-    x, y, z = gps.locate()
-    yOirigin = y
+    local x, y, z = gps.locate()
+    local yOirigin = y
     refuelTurtle(1, y - 14, 1)
     while (y > 14) do
         if (turtle.detectDown()) then
@@ -50,7 +50,7 @@ end
 
 function getMineDimensions()
 
-    mineDimensions = {}
+    local mineDimensions = {}
     --Dimensions will be referenced as follows
     -- x dim or x, z dim or z, and y depth or y, the y coord will be refenced
     --seperately as yCoord as it is used for calculations and is not a dimension
@@ -58,19 +58,19 @@ function getMineDimensions()
     print("Place turtle on bottom left corner of\nwhere you want to mine...")
 
     io.write("Enter dimension x: ")
-    x = math.floor(tonumber(io.read()))
+    local x = math.floor(tonumber(io.read()))
     print("X: ", x)
     mineDimensions["x dim"] = x
 
     io.write("Enter dimension z: ")
-    z = math.floor(tonumber(io.read()))
+    local z = math.floor(tonumber(io.read()))
     print("Z: ", z)
     mineDimensions["z dim"] = z
 
     --Y must be less than 256 and greater than 14 for the safety of the user
 
     io.write("Enter Y coordinate: ")
-    yCoord = math.floor(tonumber(io.read()))
+    local yCoord = math.floor(tonumber(io.read()))
     if (yCoord >= 256 or yCoord <= 14) then
         while (yCoord >= 256 or yCoord <= 14) do
             print("Enter a Y coordinate that is below build height (256)")
@@ -78,7 +78,7 @@ function getMineDimensions()
             yCoord = math.floor(tonumber(io.read()))
         end
     end
-    y = yCoord - 14
+    local y = yCoord - 14
     print("Y level: ", y + 14)
     print("Depth of mine will be: ", y)
     mineDimensions["y depth"] = y
@@ -91,9 +91,9 @@ function excavateCoreShaft(mineDimensions)
     --Account for the block the turtle
     --mines down by subtracting 1 from the
     --dimensions
-    x = mineDimensions["x dim"]
-    z = mineDimensions["z dim"]
-    y = mineDimensions["y depth"]
+    local x = mineDimensions["x dim"]
+    local z = mineDimensions["z dim"]
+    local y = mineDimensions["y depth"]
 
     --Check accuracy of table
     print("X Dimension: ", x)
@@ -179,7 +179,7 @@ function reorientTurtle()
 end
 
 function returnTurtle(yOrigin, yDepth)
-    yDisplacement = yOirigin - yDepth
+    local yDisplacement = yOrigin - yDepth
     if (yDisplacement < 0) then
        --Set to because the refuelTurtle function argument increments the y displacement
        yDisplacement = -1
@@ -194,7 +194,7 @@ function returnTurtle(yOrigin, yDepth)
 end
 
 function refuelTurtle(x, y, z)
-    fuelTask = x * y * z
+    local fuelTask = x * y * z
     currentFuel = turtle.getFuelLevel()
     fuelNeeded = math.floor((fuelTask - currentFuel) / 80) + 1
     if (currentFuel < fuelTask) then

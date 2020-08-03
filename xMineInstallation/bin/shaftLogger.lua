@@ -7,13 +7,13 @@ xdata = xDirData.xdata
 vectors = {}
 
 function main()
-    path = xroot .. xdata .. ".excavations.txt"
+    local path = xroot .. xdata .. ".excavations.txt"
     createVectorsFromFile(path)
     return isNearCoreShaft(gps.locate())
 end
 
 function isNearCoreShaft(x, y, z)
-    currentLocation = vector.new(x,y,z)
+    local currentLocation = vector.new(x,y,z)
     for index in pairs(vectors) do
         if (currentLocation - index < 500) then
             return true
@@ -30,12 +30,12 @@ function createVectorsFromFile(path)
     --x
     --y
     --z
-    excavationData = io.open(path, "r")
-    lineNum = 1
-    index = 1
-    x = 0
-    y = 0
-    z = 0
+    local excavationData = io.open(path, "r")
+    local lineNum = 1
+    local index = 1
+    local x = 0
+    local y = 0
+    local z = 0
     for line in excavationData:lines() do
         if (lineNum < 3) then
             if (lineNum == 1) then
