@@ -9,7 +9,7 @@ function main()
     os.loadAPI(xroot .. xlib .. "turtleGPS.lua")
     os.loadAPI(xroot .. xlib .. "gui.lua")
     if (isCoreShaftCompleted()) then
-        return
+        return true
     end
     gui.displayWelcomeScreen()
     mineDimensions = getMineDimensions()
@@ -53,32 +53,32 @@ function getMineDimensions()
     -- x dim or x, z dim or z, and y depth or y, the y coord will be refenced
     --seperately as yCoord as it is used for calculations and is not a dimension
 
-    print("Place turtle on bottom left corner of\nwhere you want to mine...")
+    print("\nPlace turtle on bottom left corner of\nwhere you want to mine...")
 
-    io.write("Enter dimension x: ")
+    io.write("\nEnter dimension x: ")
     local x = math.floor(tonumber(io.read()))
     print("X: ", x)
     mineDimensions["x dim"] = x
 
-    io.write("Enter dimension z: ")
+    io.write("\nEnter dimension z: ")
     local z = math.floor(tonumber(io.read()))
     print("Z: ", z)
     mineDimensions["z dim"] = z
 
     --Y must be less than 256 and greater than 14 for the safety of the user
 
-    io.write("Enter Y coordinate: ")
+    io.write("\nEnter Y coordinate: ")
     local yCoord = math.floor(tonumber(io.read()))
     if (yCoord >= 256 or yCoord <= 14) then
         while (yCoord >= 256 or yCoord <= 14) do
-            print("Enter a Y coordinate that is below build height (256)")
+            print("\nEnter a Y coordinate that is below build height (256)")
             io.write("and above the minumum safety level (14): ")
             yCoord = math.floor(tonumber(io.read()))
         end
     end
     local y = yCoord - 14
-    print("Y level: ", y + 14)
-    print("Depth of mine will be: ", y)
+    print("\nY level: ", y + 14)
+    print("\nDepth of mine will be: ", y)
     mineDimensions["y depth"] = y
 
     return mineDimensions
@@ -94,9 +94,9 @@ function excavateCoreShaft(mineDimensions)
     local y = mineDimensions["y depth"]
 
     --Check accuracy of table
-    print("X Dimension: ", x)
+    --[[print("X Dimension: ", x)
     print("Z Dimension", z)
-    print("Y Depth: ", y)
+    print("Y Depth: ", y)]]
 
     --Mine the dimensions down 1 layer(y coordinate) at a time.
     refuelTurtle(x, y, z)
@@ -198,4 +198,4 @@ function refuelTurtle(x, y, z)
     end
 end
 
-main()
+return main()

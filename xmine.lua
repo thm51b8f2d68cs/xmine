@@ -59,8 +59,10 @@ function checkForShaftCompletion()
     choice = gui.promptUser("\nDid your turtle excavate the core as desired?\n [Yes/No - there were errors/exit]")
     if (choice == "no") then
         turtle.forward()
-        shell.run(xroot .. xbin .. "excavateCoreShaft.lua")
-        checkForShaftCompletion()
+        if (not shell.run(xroot .. xbin .. "excavateCoreShaft.lua")) then
+            checkForShaftCompletion()
+        end
+        print("\nShaft completed.")
     elseif (choice == "yes") then
         return
     elseif (choice == "exit") then
