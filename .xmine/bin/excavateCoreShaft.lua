@@ -14,6 +14,8 @@ function main()
     gui.displayWelcomeScreen()
     mineDimensions = getMineDimensions()
     excavateCoreShaft(mineDimensions)
+    io.write("Excavation commencing ")
+    textutils.slowPrint("......")
     returnTurtle(mineDimensions["y depth"] + 14, 14)
     displayCoreShaftCompletion(mineDimensions)
 end
