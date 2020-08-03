@@ -47,7 +47,7 @@ function autoSetup()
     runQuadrantShaft()
   end
 end
- 
+
 function runCoreShaft()
   shell.run(xroot .. xbin .. "excavateCoreShaft.lua")
   --Ask user if it ran correctly eg. did it excavate the desired dimensions
