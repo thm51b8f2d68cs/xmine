@@ -62,6 +62,8 @@ function checkForShaftCompletion()
         turtle.forward()
         if (dofile(xroot .. xbin .. "excavateCoreShaft.lua")) then
             print("\nShaft completed.")
+            os.sleep(1)
+            return
         else
             checkForShaftCompletion()
         end
